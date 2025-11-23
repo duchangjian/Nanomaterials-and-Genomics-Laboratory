@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 纳米材料应用和植物基因组学实验室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 加载配置文件 -->
+    <script src="tailwind.config.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <script src="config.js"></script>
+    <!-- 内容加载器 -->
+    <script src="content-loader.js"></script>
+    <script src="hot-reload.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between h-16 md:h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <i class="fa fa-flask text-primary text-2xl" data-image="logo"></i>
+                        <span class="text-lg md:text-xl font-bold text-primary" data-content="site.title">纳米材料与基因组学实验室</span>
+                    </a>
+                </div>
+                
+                <!-- 桌面端导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link" data-content="nav.home">首页</a>
+                    <a href="about.html" class="nav-link" data-content="nav.about">关于实验室</a>
+                    <a href="pi.html" class="nav-link" data-content="nav.pi">PI简介</a>
+                    <a href="students.html" class="nav-link" data-content="nav.students">研究团队</a>
+                    <a href="research.html" class="nav-link" data-content="nav.research">科研项目</a>
+                    <a href="contact.html" class="nav-link active" data-content="nav.contact">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- 移动端导航菜单 -->
+                <div id="mobile-menu" class="hidden md:hidden pb-4">
+                    <div class="flex flex-col space-y-3">
+                        <a href="index.html" class="nav-link py-2" data-content="nav.home">首页</a>
+                        <a href="about.html" class="nav-link py-2" data-content="nav.about">关于实验室</a>
+                        <a href="pi.html" class="nav-link py-2" data-content="nav.pi">PI简介</a>
+                        <a href="students.html" class="nav-link py-2" data-content="nav.students">研究团队</a>
+                        <a href="research.html" class="nav-link py-2" data-content="nav.research">科研项目</a>
+                        <a href="contact.html" class="nav-link active py-2" data-content="nav.contact">联系我们</a>
+                    </div>
+                </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 联系方式 -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="mb-12 text-center">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4" data-content="contact.heading">联系我们</h2>
+                    <div class="w-24 h-1 bg-accent mx-auto"></div>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto" data-content="contact.description">
+                        如果您对我们的研究感兴趣，或者有任何问题和合作意向，请随时与我们联系
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- 联系信息 -->
+                    <div class="bg-neutral p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-content="contact.infoTitle">实验室信息</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                    <i class="fa fa-map-marker text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1" data-content="contact.addressTitle">地址</h4>
+                                <p class="text-gray-600" data-content="contact.address">中国 北京市海淀区中关村南大街5号 农业大学生命科学学院 纳米材料与植物基因组学实验室</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                    <i class="fa fa-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1" data-content="contact.phoneTitle">电话</h4>
+                                <p class="text-gray-600" data-content="contact.phone">+86 10 8888 7777</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                    <i class="fa fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1" data-content="contact.emailTitle">邮箱</h4>
+                                <p class="text-gray-600" data-content="contact.email">nano_plant@example.edu.cn</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                    <i class="fa fa-clock-o text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1" data-content="contact.hoursTitle">工作时间</h4>
+                                <p class="text-gray-600" data-content="contact.hours">周一至周五: 9:00 - 18:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 社交媒体 -->
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-gray-800 mb-4" data-content="contact.socialTitle">关注我们</h4>
+                            <div class="flex gap-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors">
+                                    <i class="fa fa-weixin"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors">
+                                    <i class="fa fa-weibo"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 联系表单 -->
+                    <div class="bg-neutral p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-content="contact.formTitle">发送消息</h3>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2" data-content="contact.form.name">姓名</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="您的姓名" data-content="contact.form.namePlaceholder" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2" data-content="contact.form.email">邮箱</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="您的邮箱" data-content="contact.form.emailPlaceholder" required>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2" data-content="contact.form.subject">主题</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="消息主题" data-content="contact.form.subjectPlaceholder" required>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2" data-content="contact.form.message">消息内容</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="请输入您的消息" data-content="contact.form.messagePlaceholder" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 group">
+                                <span data-content="contact.form.submit">发送消息</span>
+                                <i class="fa fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- 地图 -->
+                <div class="mt-16 rounded-xl overflow-hidden shadow-xl">
+                    <div class="h-[400px] bg-gray-200 flex items-center justify-center">
+                        <div class="text-center p-8 bg-white/90 rounded-lg transform transition-all duration-500 hover:scale-[1.02]">
+                            <i class="fa fa-map-o text-4xl text-primary mb-4 animate-pulse" data-image="contact.mapIcon"></i>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2" data-content="contact.mapTitle">实验室位置</h4>
+                            <p class="text-gray-600" data-content="contact.mapAddress">中国 北京市海淀区中关村南大街5号 农业大学生命科学学院</p>
+                            <button class="mt-4 px-6 py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-md">
+                                <span data-content="contact.mapButton">查看地图</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fa fa-flask mr-2" data-image="logo"></i><span data-content="footer.title">纳米材料与基因组学实验室</span>
+                    </h4>
+                    <p class="text-gray-300 mb-4" data-content="footer.subtitle">
+                        探索纳米技术在植物科学领域的创新应用，推动农业可持续发展。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors" data-content="footer.social.wechat">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors" data-content="footer.social.weibo">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors" data-content="footer.social.github">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors" data-content="footer.social.linkedin">
+                            <i class="fa fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-content="footer.linksTitle">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors" data-content="nav.home">首页</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors" data-content="nav.about">关于实验室</a></li>
+                        <li><a href="pi.html" class="text-gray-300 hover:text-white transition-colors" data-content="nav.pi">PI简介</a></li>
+                        <li><a href="students.html" class="text-gray-300 hover:text-white transition-colors" data-content="nav.students">研究团队</a></li>
+                        <li><a href="research.html" class="text-gray-300 hover:text-white transition-colors" data-content="nav.research">科研项目</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors" data-content="nav.contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-content="footer.contactTitle">联系方式</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker mt-1 mr-3 text-gray-300"></i>
+                            <span class="text-gray-300" data-content="footer.address">中国 北京市海淀区中关村南大街5号</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-3 text-gray-300"></i>
+                            <span class="text-gray-300" data-content="footer.phone">+86 10 8888 7777</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-3 text-gray-300"></i>
+                            <span class="text-gray-300" data-content="footer.email">nano_plant@example.edu.cn</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p data-content="footer.copyright">© 2024 纳米材料应用和植物基因组学实验室. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 关闭移动端菜单当点击菜单项时
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // 联系表单提交处理
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // 这里可以添加表单验证和提交逻辑
+            alert('感谢您的消息！我们将尽快与您联系。');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

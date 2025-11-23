@@ -1,0 +1,259 @@
+{
+  "site": {
+    "name": "实验室网站",
+    "description": "实验室官方网站，展示研究成果、团队成员和联系方式",
+    "keywords": "实验室,研究,团队,科研项目"
+  },
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "research": "研究方向",
+    "students": "研究团队",
+    "pi": "简介",
+    "contact": "联系我们"
+  },
+  "footer": {
+    "title": "纳米材料与基因组学实验室",
+    "subtitle": "探索纳米技术在植物科学领域的创新应用，推动农业可持续发展",
+    "social": {
+      "wechat": "微信",
+      "weibo": "微博",
+      "email": "邮箱",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "linksTitle": "快速链接",
+    "researchTitle": "研究方向",
+    "contactTitle": "联系方式",
+    "address": "中国 北京市海淀区中关村南大街5号",
+    "phone": "+86 010-12345678",
+    "email": "lab@example.edu.cn",
+    "copyright": "© 2024 纳米材料应用和植物基因组学实验室. 保留所有权利",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "sitemap": "网站地图",
+    "description": "实验室致力于前沿科学研究，培养创新型人才",
+    "quick_links": "快速链接",
+    "contact_us": "联系我们"
+  },
+  "index": {
+    "hero": {
+      "title": "纳米材料应用和植物基因组学实验室",
+      "subtitle": "探索纳米技术与植物科学的交叉领域，推动农业科技创新与可持续发展",
+      "btn_text": "了解更多",
+      "contact_btn": "联系我们"
+    },
+    "labPhotos": [
+      {"caption": "实验室全景"},
+      {"caption": "实验设备"},
+      {"caption": "研究环境"}
+    ],
+    "about": {
+      "title": "关于实验室",
+      "description": "实验室成立于2010年，专注于生物技术、基因工程等领域的研究",
+      "btn_text": "了解详情"
+    },
+    "research": {
+      "title": "研究方向",
+      "card_titles": [
+        "基因编辑技术",
+        "合成生物学",
+        "生物信息学",
+        "分子生物学"
+      ],
+      "btn_text": "查看所有研究"
+    },
+    "news": {
+      "title": "最新动态",
+      "more_text": "查看更多"
+    },
+    "projects": {
+      "title": "科研项目",
+      "view_details": "查看详情"
+    }
+  },
+  "about": {
+    "title": "关于我们",
+    "overview": {
+      "heading": "实验室概述",
+      "content": "实验室成立于2010年，是专注于生物技术和基因工程研究的重要基地。我们拥有一流的研究设施和国际化的研究团队，致力于解决生命科学领域的重大科学问题。"
+    },
+    "research_directions": {
+      "heading": "主要研究方向",
+      "directions": [
+        {
+          "title": "基因编辑技术",
+          "description": "开发和优化CRISPR-Cas9等基因编辑技术，应用于疾病治疗和农业改良"
+        },
+        {
+          "title": "合成生物学",
+          "description": "设计和构建人工生物系统，用于生物制造和环境修复"
+        },
+        {
+          "title": "生物信息学",
+          "description": "利用计算方法分析和解读生物大数据，发现新的生物学规律"
+        }
+      ]
+    },
+    "equipment": {
+      "heading": "实验室设备",
+      "description": "我们配备了先进的实验设备，包括高通量测序仪、实时定量PCR仪、流式细胞仪等，为高质量的科学研究提供保障。"
+    }
+  },
+  "research": {
+    "title": "研究方向",
+    "description": "实验室在纳米材料与植物基因组学交叉领域开展前沿工作",
+    "filters": {
+      "all": "全部",
+      "nanomaterials": "纳米材料",
+      "genomics": "基因组学",
+      "bioengineering": "生物工程"
+    },
+    "projects": [
+      {
+        "title": "纳米材料应用",
+        "description": "研究纳米材料在植物生长、发育和抗逆性中的应用，开发新型纳米载体系统提高农业生产效率",
+        "type": "重点项目",
+        "period": "2022-2025",
+        "category": "nanomaterials"
+      },
+      {
+        "title": "植物基因组学",
+        "description": "利用基因组学技术解析植物关键性状的分子机制，为作物改良和农业可持续发展提供理论基础",
+        "type": "国家自然科学基金",
+        "period": "2021-2024",
+        "category": "genomics"
+      },
+      {
+        "title": "纳米传感器在植物生理监测中的应用",
+        "description": "开发基于纳米材料的传感器，实时监测植物生理状态和环境响应",
+        "type": "省级重点项目",
+        "period": "2023-2026",
+        "category": "bioengineering"
+      },
+      {
+        "title": "纳米药物递送系统在农业中的应用",
+        "description": "设计和优化纳米药物递送系统，提高农药和肥料的利用效率，减少环境污染",
+        "type": "横向合作",
+        "period": "2022-2024",
+        "category": "nanomaterials"
+      },
+      {
+        "title": "植物抗逆基因的功能鉴定",
+        "description": "通过基因组编辑和功能分析，鉴定和验证植物抗逆性相关基因的功能",
+        "type": "青年基金",
+        "period": "2023-2025",
+        "category": "genomics"
+      },
+      {
+        "title": "纳米复合材料与植物互作机制研究",
+        "description": "探究纳米复合材料与植物细胞的相互作用机制，为纳米农业应用提供理论依据",
+        "type": "校级项目",
+        "period": "2023-2024",
+        "category": "bioengineering"
+      }
+    ],
+    "directions": [
+      {"title": "纳米材料", "description": "新型纳米材料的设计与合成"},
+      {"title": "基因组学", "description": "植物基因组测序与分析"},
+      {"title": "生物工程", "description": "农业生物技术应用"}
+    ],
+    "view_details": "查看详情",
+    "details": "查看详情"
+  },
+  "students": {
+    "heading": "研究团队",
+    "description": "实验室拥有一支由教授、博士后、研究生和本科生组成的研究团队",
+    "filters": {
+      "all": "全部",
+      "graduate": "研究生",
+      "undergraduate": "本科生"
+    },
+    "graduate": {
+      "name": "张小明",
+      "info": "2022级 | 博士研究生 | 纳米材料",
+      "photo": "photos/22级化学四班王昕.jpg"
+    },
+    "undergraduates": [
+      {"name": "李华", "info": "2023级 | 化学", "photo": "photos/23级化学三班化学专业张嘉林.jpg"},
+      {"name": "王强", "info": "2023级 | 化学", "photo": "photos/23级化学三班吕晨媛.jpg"},
+      {"name": "赵小红", "info": "2023级 | 化学", "photo": "photos/23级化学三班李仁靖.jpg"},
+      {"name": "刘芳", "info": "2023级 | 化学", "photo": "photos/23级化学三班王广豫.jpg"},
+      {"name": "陈明", "info": "2023级 | 制药工程", "photo": "photos/陈文杰2022级制药工程.jpg"},
+      {"name": "张伟", "info": "2023级 | 化学", "photo": "photos/刘翔2022级化学.jpg"},
+      {"name": "王丽", "info": "2023级 | 化学", "photo": "photos/刘轩宇23级化学.jpg"},
+      {"name": "周敏", "info": "2023级 | 生物信息学", "photo": "photos/5fec5719106ca636b3516e7d14a20fe0.jpg"},
+      {"name": "吴强", "info": "2023级 | 制药工程", "photo": "photos/杜常健证件.png"},
+      {"name": "郑洁", "info": "2023级 | 植物保护", "photo": "photos/22化四的郑西西.jpg"},
+      {"name": "孙阳", "info": "2023级 | 园艺", "photo": "photos/赵振坤.jpg"},
+      {"name": "徐琳", "info": "2023级 | 食品科学", "photo": "photos/邱子杨大四 22级化学一班.jpg"},
+      {"name": "马啸", "info": "2023级 | 应用化学", "photo": "photos/22级化学张震华.jpg"},
+      {"name": "朱婷", "info": "2023级 | 生态学", "photo": "photos/周建德 22级化学一班.jpg"},
+      {"name": "胡宇", "info": "2023级 | 农业资源与环境", "photo": "photos/2023级化学与化工学院秦亚飞.jpg"},
+      {"name": "林小", "info": "2023级 | 生物技术", "photo": "photos/22级化学四班的刘文俊.jpg"},
+      {"name": "何欣", "info": "2023级 | 生物科学", "photo": "photos/大豆5.jpg"},
+      {"name": "罗鹏", "info": "2023级 | 材料化学", "photo": "photos/项目10.jpg"},
+      {"name": "梁悦", "info": "2023级 | 环境工程", "photo": "photos/实验室1.jpg"},
+      {"name": "宋哲", "info": "2023级 | 生物医学工程", "photo": "photos/实验室2.jpg"}
+    ]
+  },
+  "pi": {
+    "heading": "实验室负责人",
+    "name": "张明教授",
+    "title": "张明教授，博士生导师，国家杰出青年科学基金获得者，入选国家\"万人计划\"科技创新领军人才",
+    "educationTitle": "教育背景",
+    "educationPhd": "2005.09-2010.06，中国科学院，博士学位",
+    "educationBachelor": "2001.09-2005.06，北京大学，学士学位",
+    "experienceTitle": "工作经历",
+    "experienceCurrent": "2015.01-至今，中国科学技术大学，教授",
+    "experiencePrevious": "2010.07-2014.12，哈佛大学，博士后研究员",
+    "achievementsTitle": "研究成果",
+    "achievementsPublications": "张教授在纳米材料与植物科学交叉领域取得了一系列创新性成果，发表SCI论文100余篇，其中在Nature、Science等顶级期刊发表论文20余篇，引用次数超过10000次。",
+    "achievementsProjects": "主持国家重点研发计划项目、国家自然科学基金重点项目等多项国家级科研项目，获得国家自然科学二等奖1项，省部级科技奖励3项。",
+    "contactButton": "联系张教授"
+  },
+  "contact": {
+    "heading": "联系我们",
+    "description": "如果您对我们的研究工作有兴趣，或者有任何合作意向，请通过以下方式与我们联系",
+    "infoTitle": "实验室信息",
+    "address": {
+      "heading": "地址",
+      "location": "北京市海淀区中关村南大街5号"
+    },
+    "phone": {
+      "heading": "电话",
+      "number": "+86 010-12345678"
+    },
+    "email": {
+      "heading": "邮箱",
+      "address": "lab@example.edu.cn"
+    },
+    "hours": {
+      "heading": "工作时间",
+      "schedule": "周一至周五 9:00-17:00"
+    },
+    "socialTitle": "关注我们",
+    "form": {
+      "heading": "留言咨询",
+      "name": "姓名",
+      "email": "邮箱",
+      "subject": "主题",
+      "message": "留言内容",
+      "submit": "提交留言"
+    },
+    "mapIcon": "photos/实验室1.jpg",
+    "mapTitle": "实验室位置",
+    "mapAddress": "北京市海淀区中关村南大街5号",
+    "mapButton": "查看地图"
+  },
+  "achievements": {
+    "publications": "100+",
+    "publicationsLabel": "发表论文",
+    "projects": "20+",
+    "projectsLabel": "科研项目",
+    "patents": "50+",
+    "patentsLabel": "专利授权",
+    "team": "21",
+    "teamLabel": "团队成员"
+  }
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站版本更新工具</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        .version-info {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #f1f3f4;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .primary-btn {
+            background-color: #4285f4;
+            color: white;
+        }
+        .primary-btn:hover {
+            background-color: #3367d6;
+        }
+        .secondary-btn {
+            background-color: #f8f9fa;
+            color: #5f6368;
+            border: 1px solid #dadce0;
+        }
+        .secondary-btn:hover {
+            background-color: #e8eaed;
+        }
+        .success-message {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .instructions h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        @media (max-width: 600px) {
+            .button-group {
+                flex-direction: column;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 网站版本更新工具</h1>
+        
+        <div class="version-info">
+            <h3>当前版本信息：</h3>
+            <pre id="version-data">正在生成版本信息...</pre>
+        </div>
+        
+        <div class="button-group">
+            <button class="primary-btn" id="generate-btn">生成新版本</button>
+            <button class="secondary-btn" id="copy-btn">复制版本信息</button>
+            <button class="secondary-btn" id="open-btn">打开 version.json</button>
+        </div>
+        
+        <div class="success-message" id="success-message">
+            ✅ 操作成功！
+        </div>
+        
+        <div class="instructions">
+            <h3>使用说明：</h3>
+            <ul>
+                <li>点击「生成新版本」按钮创建新的版本信息</li>
+                <li>点击「复制版本信息」将内容复制到剪贴板</li>
+                <li>将复制的内容粘贴到 <span class="highlight">version.json</span> 文件中</li>
+                <li>与您的内容更新一起提交并推送到GitHub</li>
+                <li>当访问者打开网站时，会自动检测到版本更新并提示刷新页面</li>
+            </ul>
+            <p><strong>注意：</strong>每次更新网站内容后，请记得更新版本信息。</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const versionDataElement = document.getElementById('version-data');
+            const generateBtn = document.getElementById('generate-btn');
+            const copyBtn = document.getElementById('copy-btn');
+            const openBtn = document.getElementById('open-btn');
+            const successMessage = document.getElementById('success-message');
+            
+            // 初始加载时生成版本信息
+            generateNewVersion();
+            
+            // 生成新版本
+            generateBtn.addEventListener('click', () => {
+                generateNewVersion();
+                showSuccessMessage('已生成新版本信息');
+            });
+            
+            // 复制版本信息
+            copyBtn.addEventListener('click', async () => {
+                try {
+                    const text = versionDataElement.textContent;
+                    await navigator.clipboard.writeText(text);
+                    showSuccessMessage('版本信息已复制到剪贴板');
+                } catch (err) {
+                    console.error('复制失败:', err);
+                    // 降级方案
+                    const textArea = document.createElement('textarea');
+                    textArea.value = versionDataElement.textContent;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    showSuccessMessage('版本信息已复制到剪贴板');
+                }
+            });
+            
+            // 尝试打开version.json
+            openBtn.addEventListener('click', () => {
+                window.open('version.json', '_blank');
+            });
+            
+            // 生成新版本信息
+            function generateNewVersion() {
+                const version = Date.now().toString();
+                const timestamp = new Date().toISOString();
+                
+                const versionContent = `{
+  "version": "${version}",
+  "timestamp": "${timestamp}",
+  "description": "网站内容版本信息，用于自动更新检测"
+}`;
+                
+                versionDataElement.textContent = versionContent;
+            }
+            
+            // 显示成功消息
+            function showSuccessMessage(message) {
+                successMessage.textContent = `✅ ${message}！`;
+                successMessage.style.display = 'block';
+                
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

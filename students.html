@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究团队 - 纳米材料应用和植物基因组学实验室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 加载配置文件 -->
+    <script src="tailwind.config.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <script src="config.js"></script>
+    <!-- 内容加载器 -->
+      <script src="content-loader.js"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between h-16 md:h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img data-image="logo" alt="实验室标志" class="h-10 w-auto">
+                        <span data-content="site.name" class="text-lg md:text-xl font-bold text-primary">纳米材料与基因组学实验室</span>
+                    </a>
+                </div>
+                
+                <!-- 桌面端导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" data-content="nav.home" class="nav-link">首页</a>
+                    <a href="about.html" data-content="nav.about" class="nav-link">关于实验室</a>
+                    <a href="pi.html" data-content="nav.pi" class="nav-link">PI简介</a>
+                    <a href="students.html" data-content="nav.students" class="nav-link active">研究团队</a>
+                    <a href="research.html" data-content="nav.research" class="nav-link">科研项目</a>
+                    <a href="contact.html" data-content="nav.contact" class="nav-link">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- 移动端导航菜单 -->
+                <div id="mobile-menu" class="hidden md:hidden pb-4">
+                    <div class="flex flex-col space-y-3">
+                        <a href="index.html" data-content="nav.home" class="nav-link py-2">首页</a>
+                        <a href="about.html" data-content="nav.about" class="nav-link py-2">关于实验室</a>
+                        <a href="pi.html" data-content="nav.pi" class="nav-link py-2">PI简介</a>
+                        <a href="students.html" data-content="nav.students" class="nav-link active py-2">研究团队</a>
+                        <a href="research.html" data-content="nav.research" class="nav-link py-2">科研项目</a>
+                        <a href="contact.html" data-content="nav.contact" class="nav-link py-2">联系我们</a>
+                    </div>
+                </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 研究团队 -->
+        <section id="students" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="mb-12 text-center">
+                    <h2 data-content="students.heading" class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">研究团队</h2>
+                    <div class="w-24 h-1 bg-accent mx-auto"></div>
+                    <p data-content="students.description" class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                        我们的团队由充满活力和创新精神的学生组成，包括20名本科生和1名研究生
+                    </p>
+                </div>
+                
+                <!-- 团队筛选 -->
+                <div class="mb-10">
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <button class="student-filter-btn active px-6 py-2 rounded-full bg-primary text-white" data-filter="all">
+                            <span data-content="students.filters.all">全部成员</span>
+                        </button>
+                        <button class="student-filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary/10 transition-colors" data-filter="graduate">
+                            <span data-content="students.filters.graduate">研究生</span>
+                        </button>
+                        <button class="student-filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary/10 transition-colors" data-filter="undergraduate">
+                            <span data-content="students.filters.undergraduate">本科生</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 研究生 -->
+                <div class="mb-16">
+                    <h3 data-content="students.graduateSection" class="text-xl font-semibold mb-6 text-center text-primary">研究生</h3>
+                    <div class="student-grid">
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-6 transition-all duration-300" data-type="graduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                                    <img data-image="students.graduate.photo" alt="研究生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.graduate.name" class="font-bold text-lg text-primary mb-1">李华</h4>
+                                <p data-content="students.graduate.title" class="text-gray-600 mb-3">博士研究生 | 材料科学与工程</p>
+                                <p data-content="students.graduate.research" class="text-gray-700 text-sm mb-4">研究方向：纳米材料在植物保护中的应用</p>
+                                <div class="flex gap-3">
+                                    <a href="#" class="text-primary hover:text-secondary transition-colors">
+                                        <i class="fa fa-envelope"></i>
+                                    </a>
+                                    <a href="#" class="text-primary hover:text-secondary transition-colors">
+                                        <i class="fa fa-github"></i>
+                                    </a>
+                                    <a href="#" class="text-primary hover:text-secondary transition-colors">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 本科生 -->
+                <div>
+                    <h3 data-content="students.undergraduateSection" class="text-xl font-semibold mb-6 text-center text-primary">本科生</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 student-grid">
+                        <!-- 本科生1 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[0].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[0].name" class="font-semibold text-primary mb-1">王小明</h4>
+                                <p data-content="students.undergraduates[0].info" class="text-gray-600 text-sm">2021级 | 生物科学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生2 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[1].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[1].name" class="font-semibold text-primary mb-1">陈静</h4>
+                                <p data-content="students.undergraduates[1].info" class="text-gray-600 text-sm">2021级 | 生物技术</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生3 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[2].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[2].name" class="font-semibold text-primary mb-1">张伟</h4>
+                                <p data-content="students.undergraduates[2].info" class="text-gray-600 text-sm">2022级 | 材料科学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生4 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[3].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[3].name" class="font-semibold text-primary mb-1">刘芳</h4>
+                                <p data-content="students.undergraduates[3].info" class="text-gray-600 text-sm">2022级 | 农学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生5 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[4].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[4].name" class="font-semibold text-primary mb-1">李强</h4>
+                                <p data-content="students.undergraduates[4].info" class="text-gray-600 text-sm">2022级 | 环境科学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生6 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[5].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[5].name" class="font-semibold text-primary mb-1">赵娜</h4>
+                                <p data-content="students.undergraduates[5].info" class="text-gray-600 text-sm">2023级 | 生物工程</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生7 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[6].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[6].name" class="font-semibold text-primary mb-1">黄亮</h4>
+                                <p data-content="students.undergraduates[6].info" class="text-gray-600 text-sm">2023级 | 化学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生8 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[7].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[7].name" class="font-semibold text-primary mb-1">周敏</h4>
+                                <p data-content="students.undergraduates[7].info" class="text-gray-600 text-sm">2023级 | 生物信息学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生9 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[8].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[8].name" class="font-semibold text-primary mb-1">吴强</h4>
+                                <p data-content="students.undergraduates[8].info" class="text-gray-600 text-sm">2023级 | 制药工程</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生10 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[9].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[9].name" class="font-semibold text-primary mb-1">郑洁</h4>
+                                <p data-content="students.undergraduates[9].info" class="text-gray-600 text-sm">2023级 | 植物保护</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生11 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[10].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[10].name" class="font-semibold text-primary mb-1">孙阳</h4>
+                                <p data-content="students.undergraduates[10].info" class="text-gray-600 text-sm">2023级 | 园艺</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生12 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[11].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[11].name" class="font-semibold text-primary mb-1">徐琳</h4>
+                                <p data-content="students.undergraduates[11].info" class="text-gray-600 text-sm">2023级 | 食品科学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生13 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[12].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[12].name" class="font-semibold text-primary mb-1">马啸</h4>
+                                <p data-content="students.undergraduates[12].info" class="text-gray-600 text-sm">2023级 | 应用化学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生14 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[13].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[13].name" class="font-semibold text-primary mb-1">朱婷</h4>
+                                <p data-content="students.undergraduates[13].info" class="text-gray-600 text-sm">2023级 | 生态学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生15 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[14].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[14].name" class="font-semibold text-primary mb-1">胡宇</h4>
+                                <p data-content="students.undergraduates[14].info" class="text-gray-600 text-sm">2023级 | 农业资源与环境</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生16 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[15].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[15].name" class="font-semibold text-primary mb-1">林小</h4>
+                                <p data-content="students.undergraduates[15].info" class="text-gray-600 text-sm">2023级 | 生物技术</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生17 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[16].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[16].name" class="font-semibold text-primary mb-1">何欣</h4>
+                                <p data-content="students.undergraduates[16].info" class="text-gray-600 text-sm">2023级 | 生物科学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生18 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[17].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[17].name" class="font-semibold text-primary mb-1">罗鹏</h4>
+                                <p data-content="students.undergraduates[17].info" class="text-gray-600 text-sm">2023级 | 材料化学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生19 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[18].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[18].name" class="font-semibold text-primary mb-1">梁悦</h4>
+                                <p data-content="students.undergraduates[18].info" class="text-gray-600 text-sm">2023级 | 环境工程</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 本科生20 -->
+                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300" data-type="undergraduate">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                                    <img data-image="students.undergraduates[19].photo" alt="学生照片" class="w-full h-full object-cover">
+                                </div>
+                                <h4 data-content="students.undergraduates[19].name" class="font-semibold text-primary mb-1">宋哲</h4>
+                                <p data-content="students.undergraduates[19].info" class="text-gray-600 text-sm">2023级 | 生物医学工程</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+        <footer class="bg-gray-800 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 data-content="footer.title" class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fa fa-flask mr-2"></i>纳米材料与基因组学实验室
+                        </h4>
+                        <p data-content="footer.description" class="text-gray-400 mb-4">
+                            探索纳米技术在植物科学领域的创新应用，推动农业可持续发展。
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" data-content="footer.social.wechat" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fa fa-wechat text-xl"></i>
+                            </a>
+                            <a href="#" data-content="footer.social.weibo" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fa fa-weibo text-xl"></i>
+                            </a>
+                            <a href="#" data-content="footer.social.email" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fa fa-envelope text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 data-content="footer.quickLinks" class="text-lg font-semibold mb-4">快速链接</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" data-content="nav.home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                            <li><a href="about.html" data-content="nav.about" class="text-gray-400 hover:text-white transition-colors">关于实验室</a></li>
+                            <li><a href="pi.html" data-content="nav.pi" class="text-gray-400 hover:text-white transition-colors">PI简介</a></li>
+                            <li><a href="students.html" data-content="nav.students" class="text-gray-400 hover:text-white transition-colors">研究团队</a></li>
+                            <li><a href="research.html" data-content="nav.research" class="text-gray-400 hover:text-white transition-colors">科研项目</a></li>
+                            <li><a href="contact.html" data-content="nav.contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 data-content="footer.contact" class="text-lg font-semibold mb-4">联系方式</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa fa-map-marker mt-1 mr-3 text-gray-400"></i>
+                                <span data-content="footer.address" class="text-gray-400">中国 北京市海淀区中关村南大街5号</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-phone mr-3 text-gray-400"></i>
+                                <span data-content="footer.phone" class="text-gray-400">+86 010-12345678</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-envelope mr-3 text-gray-400"></i>
+                                <span data-content="footer.email" class="text-gray-400">lab@example.edu.cn</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500 text-sm">
+                    <p data-content="footer.copyright" class="text-gray-500">© 2024 纳米材料应用和植物基因组学实验室. 保留所有权利.</p>
+                </div>
+            </div>
+        </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 关闭移动端菜单当点击菜单项时
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // 团队成员筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.student-filter-btn');
+            const studentCards = document.querySelectorAll('.student-card');
+            const graduateSection = document.querySelector('h3:text(研究生)').parentElement;
+            const undergraduateSection = document.querySelector('h3:text(本科生)').parentElement;
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 更新按钮样式
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-primary', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    this.classList.remove('bg-gray-200', 'text-gray-700');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    // 显示/隐藏相应的卡片和标题
+                    if (filter === 'all') {
+                        // 显示所有卡片
+                        studentCards.forEach(card => {
+                            card.style.display = 'block';
+                        });
+                        // 显示所有标题
+                        graduateSection.style.display = 'block';
+                        undergraduateSection.style.display = 'block';
+                    } else if (filter === 'graduate') {
+                        // 显示研究生卡片，隐藏本科生卡片
+                        studentCards.forEach(card => {
+                            if (card.getAttribute('data-type') === 'graduate') {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                        // 显示研究生标题，隐藏本科生标题
+                        graduateSection.style.display = 'block';
+                        undergraduateSection.style.display = 'none';
+                    } else if (filter === 'undergraduate') {
+                        // 显示本科生卡片，隐藏研究生卡片
+                        studentCards.forEach(card => {
+                            if (card.getAttribute('data-type') === 'undergraduate') {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                        // 显示本科生标题，隐藏研究生标题
+                        graduateSection.style.display = 'none';
+                        undergraduateSection.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="hot-reload.js"></script>
+  </body>
+</html>

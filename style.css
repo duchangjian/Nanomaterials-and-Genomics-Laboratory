@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局样式 */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* 自定义工具类 */
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
+  }
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  .nav-link {
+    @apply text-gray-700 hover:text-primary transition-colors duration-300;
+  }
+  .nav-link.active {
+    @apply text-primary font-medium;
+  }
+  .btn-primary {
+    @apply px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all duration-300;
+  }
+  .btn-secondary {
+    @apply px-6 py-2 bg-white text-primary border border-primary rounded-lg hover:bg-primary/5 transition-all duration-300;
+  }
+}

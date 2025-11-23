@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PI简介 - 纳米材料应用和植物基因组学实验室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 加载配置文件 -->
+    <script src="tailwind.config.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <script src="config.js"></script>
+    <!-- 内容加载器 -->
+      <script src="content-loader.js"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between h-16 md:h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <i data-image="logo" class="fa fa-flask text-primary text-2xl"></i>
+                        <span data-content="site.title" class="text-lg md:text-xl font-bold text-primary">纳米材料与基因组学实验室</span>
+                    </a>
+                </div>
+                
+                <!-- 桌面端导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" data-content="nav.home" class="nav-link">首页</a>
+                    <a href="about.html" data-content="nav.about" class="nav-link">关于实验室</a>
+                    <a href="pi.html" data-content="nav.pi" class="nav-link active">PI简介</a>
+                    <a href="students.html" data-content="nav.students" class="nav-link">研究团队</a>
+                    <a href="research.html" data-content="nav.research" class="nav-link">科研项目</a>
+                    <a href="contact.html" data-content="nav.contact" class="nav-link">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" data-content="nav.home" class="nav-link py-2">首页</a>
+                    <a href="about.html" data-content="nav.about" class="nav-link py-2">关于实验室</a>
+                    <a href="pi.html" data-content="nav.pi" class="nav-link active py-2">PI简介</a>
+                    <a href="students.html" data-content="nav.students" class="nav-link py-2">研究团队</a>
+                    <a href="research.html" data-content="nav.research" class="nav-link py-2">科研项目</a>
+                    <a href="contact.html" data-content="nav.contact" class="nav-link py-2">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- PI简介 -->
+    <section id="pi" class="py-16 bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="mb-12 text-center">
+                <h2 data-content="pi.heading" class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">实验室负责人</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-1">
+                    <div class="relative mx-auto w-64 h-64 rounded-full overflow-hidden shadow-xl border-4 border-white">
+                        <div class="w-full h-full bg-primary/20 flex items-center justify-center">
+                            <i data-image="pi.photo" class="fa fa-user text-primary/40 text-8xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 data-content="pi.name" class="text-2xl font-bold text-primary mb-3">张明教授</h3>
+                    <p data-content="pi.title" class="text-gray-700 mb-4">
+                        张明教授，博士生导师，国家杰出青年科学基金获得者，入选国家"万人计划"科技创新领军人才。
+                    </p>
+                    <div class="mb-6">
+                        <h4 data-content="pi.educationTitle" class="font-semibold text-primary mb-2">教育背景</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa fa-graduation-cap text-primary mt-1 mr-3"></i>
+                                <span data-content="pi.educationPhd">2005.09-2010.06，中国科学院，博士学位</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-graduation-cap text-primary mt-1 mr-3"></i>
+                                <span data-content="pi.educationBachelor">2001.09-2005.06，北京大学，学士学位</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-6">
+                        <h4 data-content="pi.experienceTitle" class="font-semibold text-primary mb-2">工作经历</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa fa-briefcase text-primary mt-1 mr-3"></i>
+                                <span data-content="pi.experienceCurrent">2015.01-至今，中国科学技术大学，教授</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-briefcase text-primary mt-1 mr-3"></i>
+                                <span data-content="pi.experiencePrevious">2010.07-2014.12，哈佛大学，博士后研究员</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-6">
+                        <h4 data-content="pi.achievementsTitle" class="font-semibold text-primary mb-2">研究成果</h4>
+                        <p data-content="pi.achievementsPublications" class="text-gray-700 mb-2">
+                            张教授在纳米材料与植物科学交叉领域取得了一系列创新性成果，发表SCI论文100余篇，其中在Nature、Science等顶级期刊发表论文20余篇，引用次数超过10000次。
+                        </p>
+                        <p data-content="pi.achievementsProjects" class="text-gray-700">
+                            主持国家重点研发计划项目、国家自然科学基金重点项目等多项国家级科研项目，获得国家自然科学二等奖1项，省部级科技奖励3项。
+                        </p>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition-colors">
+                            <i class="fa fa-envelope"></i>
+                            <span data-content="pi.contactButton">联系张教授</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- 实验室成就 -->
+        <section class="py-16 bg-gradient-to-br from-primary to-secondary text-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-6">
+                        <div data-content="achievements.publications" class="text-4xl md:text-5xl font-bold mb-2">100+</div>
+                        <p data-content="achievements.publicationsLabel" class="opacity-90">发表论文</p>
+                    </div>
+                    <div class="p-6">
+                        <div data-content="achievements.projects" class="text-4xl md:text-5xl font-bold mb-2">20+</div>
+                        <p data-content="achievements.projectsLabel" class="opacity-90">科研项目</p>
+                    </div>
+                    <div class="p-6">
+                        <div data-content="achievements.patents" class="text-4xl md:text-5xl font-bold mb-2">50+</div>
+                        <p data-content="achievements.patentsLabel" class="opacity-90">专利授权</p>
+                    </div>
+                    <div class="p-6">
+                        <div data-content="achievements.team" class="text-4xl md:text-5xl font-bold mb-2">21</div>
+                        <p data-content="achievements.teamLabel" class="opacity-90">团队成员</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fa fa-flask mr-2"></i><span data-content="footer.title">纳米材料与基因组学实验室</span>
+                    </h4>
+                    <p data-content="footer.subtitle" class="text-gray-400 mb-4">
+                        探索纳米技术在植物科学领域的创新应用，推动农业可持续发展。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" data-content="footer.social.wechat" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-wechat text-xl"></i>
+                        </a>
+                        <a href="#" data-content="footer.social.weibo" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" data-content="footer.social.email" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 data-content="footer.linksTitle" class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" data-content="nav.home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="about.html" data-content="nav.about" class="text-gray-400 hover:text-white transition-colors">关于实验室</a></li>
+                        <li><a href="pi.html" data-content="nav.pi" class="text-gray-400 hover:text-white transition-colors">PI简介</a></li>
+                        <li><a href="students.html" data-content="nav.students" class="text-gray-400 hover:text-white transition-colors">研究团队</a></li>
+                        <li><a href="research.html" data-content="nav.research" class="text-gray-400 hover:text-white transition-colors">科研项目</a></li>
+                        <li><a href="contact.html" data-content="nav.contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 data-content="footer.contactTitle" class="text-lg font-semibold mb-4">联系方式</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker mt-1 mr-3 text-gray-400"></i>
+                            <span data-content="footer.address" class="text-gray-400">中国 北京市海淀区中关村南大街5号</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-3 text-gray-400"></i>
+                            <span data-content="footer.phone" class="text-gray-400">+86 010-12345678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-3 text-gray-400"></i>
+                            <span data-content="footer.email" class="text-gray-400">lab@example.edu.cn</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p data-content="footer.copyright">© 2024 纳米材料应用和植物基因组学实验室. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 关闭移动端菜单当点击菜单项时
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+    <script src="hot-reload.js"></script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科研项目 - 纳米植物实验室</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 加载配置文件 -->
+    <script src="tailwind.config.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <script src="config.js"></script>
+    <!-- 内容加载器 -->
+      <script src="content-loader.js"></script>
+      <style>
+        /* 自定义样式 */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-neutral font-sans text-gray-800">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i data-image="logo" class="fa fa-flask text-primary text-2xl"></i>
+                <span data-content="site.title" class="text-xl font-bold text-primary">纳米植物实验室</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="about.html" data-content="nav.about" class="font-medium hover:text-primary transition-colors">关于实验室</a>
+                <a href="pi.html" data-content="nav.pi" class="font-medium hover:text-primary transition-colors">PI简介</a>
+                <a href="students.html" data-content="nav.students" class="font-medium hover:text-primary transition-colors">研究团队</a>
+                <a href="research.html" data-content="nav.research" class="font-medium text-primary transition-colors">科研项目</a>
+                <a href="contact.html" data-content="nav.contact" class="font-medium hover:text-primary transition-colors">联系我们</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col gap-4">
+                <a href="about.html" data-content="nav.about" class="py-2 font-medium hover:text-primary transition-colors">关于实验室</a>
+                <a href="pi.html" data-content="nav.pi" class="py-2 font-medium hover:text-primary transition-colors">PI简介</a>
+                <a href="students.html" data-content="nav.students" class="py-2 font-medium hover:text-primary transition-colors">研究团队</a>
+                <a href="research.html" data-content="nav.research" class="py-2 font-medium text-primary transition-colors">科研项目</a>
+                <a href="contact.html" data-content="nav.contact" class="py-2 font-medium hover:text-primary transition-colors">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 科研项目 -->
+    <section id="projects" class="py-16 bg-gray-50 pt-28">
+        <div class="container mx-auto px-4">
+            <div class="mb-12 text-center">
+                <h2 data-content="research.heading" class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">科研项目</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+                <p data-content="research.description" class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    我们的实验室致力于纳米材料在农业和植物科学领域的前沿研究，目前承担多项国家级和省部级科研项目
+                </p>
+            </div>
+            
+            <!-- 项目筛选 -->
+            <div class="mb-10">
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button class="project-filter-btn active px-6 py-2 rounded-full bg-primary text-white" data-filter="all">
+                        <span data-content="research.filters.all">全部项目</span>
+                    </button>
+                    <button class="project-filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary/10 transition-colors" data-filter="nano">
+                        <span data-content="research.filters.nano">纳米材料</span>
+                    </button>
+                    <button class="project-filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary/10 transition-colors" data-filter="genomics">
+                        <span data-content="research.filters.genomics">基因组学</span>
+                    </button>
+                    <button class="project-filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary/10 transition-colors" data-filter="agriculture">
+                        <span data-content="research.filters.agriculture">农业应用</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 项目列表 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 project-grid">
+                <!-- 项目1 -->
+                <div class="project-card card-hover bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2" data-category="nano agriculture">
+                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                        <i data-image="research.projects[0].icon" class="fa fa-flask text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium mb-3" data-content="research.projects[0].type">国家级重点项目</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3" data-content="research.projects[0].title">新型纳米肥料的研发与应用</h3>
+                        <p class="text-gray-600 mb-4" data-content="research.projects[0].description">
+                            开发具有控释功能的纳米肥料，提高肥料利用率，减少环境污染，促进作物生长和产量提升。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm" data-content="research.projects[0].period">2022-2025</span>
+                            <a href="index.html#projects" target="_blank" class="text-primary hover:text-secondary font-medium flex items-center gap-1">
+                                <span data-content="research.details">查看详情</span> <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 项目2 -->
+                <div class="project-card card-hover bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2" data-category="genomics agriculture">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
+                        <i data-image="research.projects[1].icon" class="fa fa-dna text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium mb-3" data-content="research.projects[1].type">省部级项目</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3" data-content="research.projects[1].title">作物抗逆基因的鉴定与功能分析</h3>
+                        <p class="text-gray-600 mb-4" data-content="research.projects[1].description">
+                            利用基因组学和生物信息学技术，鉴定和解析作物抗逆相关基因的功能，为提高作物抗逆性提供理论基础。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm" data-content="research.projects[1].period">2021-2024</span>
+                            <a href="index.html#projects" target="_blank" class="text-primary hover:text-secondary font-medium flex items-center gap-1">
+                                <span data-content="research.details">查看详情</span> <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 项目3 -->
+                <div class="project-card card-hover bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2" data-category="nano">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
+                        <i data-image="research.projects[2].icon" class="fa fa-microchip text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium mb-3" data-content="research.projects[2].type">国际合作项目</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3" data-content="research.projects[2].title">纳米传感器在植物生理监测中的应用</h3>
+                        <p class="text-gray-600 mb-4" data-content="research.projects[2].description">
+                            开发基于纳米材料的传感器，实现对植物生理状态的实时、精准监测，为智能农业提供技术支持。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm" data-content="research.projects[2].period">2023-2026</span>
+                            <a href="index.html#projects" target="_blank" class="text-primary hover:text-secondary font-medium flex items-center gap-1">
+                                <span data-content="research.details">查看详情</span> <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 项目4 -->
+                <div class="project-card card-hover bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2" data-category="nano agriculture">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i data-image="research.projects[3].icon" class="fa fa-leaf text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium mb-3" data-content="research.projects[3].type">横向合作项目</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3" data-content="research.projects[3].title">纳米农药的开发与环境安全性评价</h3>
+                        <p class="text-gray-600 mb-4" data-content="research.projects[3].description">
+                            研发高效低毒的纳米农药制剂，开展环境行为和生态安全性评价，为农药减量增效提供新思路。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm" data-content="research.projects[3].period">2022-2024</span>
+                            <a href="index.html#projects" target="_blank" class="text-primary hover:text-secondary font-medium flex items-center gap-1">
+                                <span data-content="research.details">查看详情</span> <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 项目5 -->
+                <div class="project-card card-hover bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2" data-category="genomics">
+                    <div class="h-48 bg-gradient-to-r from-yellow-500 to-orange-600 flex items-center justify-center">
+                        <i data-image="research.projects[4].icon" class="fa fa-database text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-medium mb-3" data-content="research.projects[4].type">人才项目</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3" data-content="research.projects[4].title">植物基因组编辑技术体系的建立与优化</h3>
+                        <p class="text-gray-600 mb-4" data-content="research.projects[4].description">
+                            建立高效的植物基因组编辑技术体系，优化CRISPR-Cas9系统，实现对重要农艺性状基因的精准编辑。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm" data-content="research.projects[4].period">2021-2025</span>
+                            <a href="index.html#projects" target="_blank" class="text-primary hover:text-secondary font-medium flex items-center gap-1">
+                                <span data-content="research.details">查看详情</span> <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 项目6 -->
+                <div class="project-card card-hover bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2" data-category="nano genomics">
+                    <div class="h-48 bg-gradient-to-r from-red-500 to-orange-500 flex items-center justify-center">
+                        <i data-image="research.projects[5].icon" class="fa fa-lightbulb text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium mb-3" data-content="research.projects[5].type">创新基金项目</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3" data-content="research.projects[5].title">纳米载体介导的基因递送系统研究</h3>
+                        <p class="text-gray-600 mb-4" data-content="research.projects[5].description">
+                            开发基于纳米材料的基因递送载体，提高基因转导效率，为植物基因功能研究和分子育种提供新工具。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm" data-content="research.projects[5].period">2023-2025</span>
+                            <a href="index.html#projects" target="_blank" class="text-primary hover:text-secondary font-medium flex items-center gap-1">
+                                <span data-content="research.details">查看详情</span> <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+        <footer class="bg-gray-800 text-white pt-12 pb-6">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <div class="flex items-center gap-2 mb-6">
+                            <i class="fa fa-flask text-2xl"></i>
+                            <span class="text-xl font-bold" data-content="footer.title">纳米植物实验室</span>
+                        </div>
+                        <p class="text-gray-400 mb-6" data-content="footer.subtitle">
+                            致力于纳米材料与植物科学交叉领域的创新研究，为农业可持续发展和粮食安全贡献力量。
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors" data-content="footer.social.wechat">
+                                <i class="fa fa-weixin text-lg"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors" data-content="footer.social.weibo">
+                                <i class="fa fa-weibo text-lg"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors" data-content="footer.social.github">
+                                <i class="fa fa-github text-lg"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors" data-content="footer.social.linkedin">
+                                <i class="fa fa-linkedin text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-6" data-content="footer.linksTitle">快速链接</h4>
+                        <ul class="space-y-3">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors" data-content="nav.home">首页</a></li>
+                            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors" data-content="nav.about">关于实验室</a></li>
+                            <li><a href="pi.html" class="text-gray-400 hover:text-white transition-colors" data-content="nav.pi">PI简介</a></li>
+                            <li><a href="students.html" class="text-gray-400 hover:text-white transition-colors" data-content="nav.students">研究团队</a></li>
+                            <li><a href="research.html" class="text-gray-400 hover:text-white transition-colors" data-content="nav.research">科研项目</a></li>
+                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors" data-content="nav.contact">联系我们</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-6" data-content="footer.researchTitle">研究方向</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-content="research.directions.nanoSynthesis">纳米材料合成</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-content="research.directions.geneticEngineering">植物基因工程</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-content="research.directions.nanoFertilizer">纳米肥料研发</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-content="research.directions.genomics">基因组学分析</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-content="research.directions.safety">环境安全性评价</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-6" data-content="footer.contactTitle">联系方式</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-map-marker text-primary mt-1"></i>
+                                <span class="text-gray-400" data-content="footer.address">中国 北京市海淀区中关村南大街5号 农业大学生命科学学院</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa fa-phone text-primary"></i>
+                                <span class="text-gray-400" data-content="footer.phone">+86 10 8888 7777</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa fa-envelope text-primary"></i>
+                                <span class="text-gray-400" data-content="footer.email">nano_plant@example.edu.cn</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 pt-6">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-gray-500 text-sm mb-4 md:mb-0" data-content="footer.copyright">
+                            &copy; 2024 纳米植物实验室. 保留所有权利.
+                        </p>
+                        <div class="flex gap-6">
+                            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors" data-content="footer.privacy">隐私政策</a>
+                            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors" data-content="footer.terms">使用条款</a>
+                            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors" data-content="footer.sitemap">网站地图</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuToggle.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-md', 'bg-white/95', 'transition-all', 'duration-300');
+                navbar.classList.remove('py-3', 'shadow-sm', 'bg-transparent');
+            } else {
+                navbar.classList.add('py-3', 'shadow-sm', 'bg-transparent', 'transition-all', 'duration-300');
+                navbar.classList.remove('py-2', 'shadow-md', 'bg-white/95');
+            }
+        });
+
+        // 保留移动菜单关闭功能
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // 项目筛选功能
+        const projectFilterButtons = document.querySelectorAll('.project-filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 更新按钮样式
+                projectFilterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                button.classList.add('active', 'bg-primary', 'text-white');
+                button.classList.remove('bg-gray-200', 'text-gray-700');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                // 筛选项目卡片
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="hot-reload.js"></script>
+</body>
+</html>

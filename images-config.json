@@ -1,0 +1,118 @@
+{
+  "images": {
+    "logo": {
+      "path": "photos/实验室3.jpg",
+      "alt": "实验室标志"
+    },
+    "hero": {
+      "path": "photos/首页.jpg",
+      "alt": "实验室环境"
+    },
+    "about": {
+      "main": {
+        "path": "photos/实验室2.jpg",
+        "alt": "实验室照片"
+      },
+      "equipment": {
+        "path": "photos/实验室3.jpg",
+        "alt": "实验室设备"
+      }
+    },
+    "research": {
+      "thumbnails": [
+        {
+          "path": "photos/项目10.jpg",
+          "alt": "基因编辑研究",
+          "id": "research-1"
+        },
+        {
+          "path": "photos/大豆5.jpg",
+          "alt": "合成生物学研究",
+          "id": "research-2"
+        },
+        {
+          "path": "photos/实验室2.jpg",
+          "alt": "生物信息学研究",
+          "id": "research-3"
+        },
+        {
+          "path": "photos/实验室3.jpg",
+          "alt": "分子生物学研究",
+          "id": "research-4"
+        }
+      ]
+    },
+    "students": {
+      "placeholder": {
+        "path": "photos/实验室1.jpg",
+        "alt": "学生照片占位图"
+      },
+      "profiles": {
+        "lihua": {
+          "path": "photos/22级化学四班王昕.jpg",
+          "alt": "李华照片"
+        },
+        "wangxiaoming": {
+          "path": "photos/22级化学三班的程华山.jpg",
+          "alt": "王小明照片"
+        }
+      },
+      "graduate": {
+        "photo": {
+          "path": "photos/22级化学四班王昕.jpg",
+          "alt": "研究生照片"
+        }
+      },
+      "undergraduates": [
+        {"path": "photos/23级化学三班化学专业张嘉林.jpg", "alt": "李华照片"},
+        {"path": "photos/23级化学三班吕晨媛.jpg", "alt": "王强照片"},
+        {"path": "photos/23级化学三班李仁靖.jpg", "alt": "赵小红照片"},
+        {"path": "photos/23级化学三班王广豫.jpg", "alt": "刘芳照片"},
+        {"path": "photos/陈文杰2022级制药工程.jpg", "alt": "陈明照片"},
+        {"path": "photos/刘翔2022级化学.jpg", "alt": "张伟照片"},
+        {"path": "photos/刘轩宇23级化学.jpg", "alt": "王丽照片"},
+        {"path": "photos/5fec5719106ca636b3516e7d14a20fe0.jpg", "alt": "周敏照片"},
+        {"path": "photos/杜常健证件.png", "alt": "吴强照片"},
+        {"path": "photos/22化四的郑西西.jpg", "alt": "郑洁照片"},
+        {"path": "photos/赵振坤.jpg", "alt": "孙阳照片"},
+        {"path": "photos/邱子杨大四 22级化学一班.jpg", "alt": "徐琳照片"},
+        {"path": "photos/22级化学张震华.jpg", "alt": "马啸照片"},
+        {"path": "photos/周建德 22级化学一班.jpg", "alt": "朱婷照片"},
+        {"path": "photos/2023级化学与化工学院秦亚飞.jpg", "alt": "胡宇照片"},
+        {"path": "photos/22级化学四班的刘文俊.jpg", "alt": "林小照片"},
+        {"path": "photos/大豆5.jpg", "alt": "何欣照片"},
+        {"path": "photos/项目10.jpg", "alt": "罗鹏照片"},
+        {"path": "photos/实验室1.jpg", "alt": "梁悦照片"},
+        {"path": "photos/实验室2.jpg", "alt": "宋哲照片"}
+      ]
+    },
+    "pi": {
+      "profile": {
+        "path": "photos/杜常健证件.png",
+        "alt": "张教授照片"
+      }
+    },
+    "contact": {
+      "map": {
+        "path": "photos/实验室1.jpg",
+        "alt": "实验室位置地图"
+      },
+      "mapIcon": {
+        "path": "photos/实验室1.jpg",
+        "alt": "地图图标"
+      }
+    }
+  },
+  "default_image": {
+    "path": "photos/实验室1.jpg",
+    "alt": "图片占位符"
+  },
+  "image_folders": {
+    "root": "photos",
+    "categories": [
+      "research",
+      "students",
+      "pi"
+    ]
+  }
+}
