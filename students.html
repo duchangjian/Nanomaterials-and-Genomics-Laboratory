@@ -87,28 +87,8 @@
                 <!-- 研究生 -->
                 <div class="mb-16">
                     <h3 data-content="students.graduateSection" class="text-xl font-semibold mb-6 text-center text-primary">研究生</h3>
-                    <div class="student-grid">
-                        <div class="student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-6 transition-all duration-300" data-type="graduate">
-                            <div class="flex flex-col items-center text-center">
-                                <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
-                                    <img data-image="students.graduate.photo" alt="研究生照片" class="w-full h-full object-cover">
-                                </div>
-                                <h4 data-content="students.graduate.name" class="font-bold text-lg text-primary mb-1">李华</h4>
-                                <p data-content="students.graduate.title" class="text-gray-600 mb-3">博士研究生 | 材料科学与工程</p>
-                                <p data-content="students.graduate.research" class="text-gray-700 text-sm mb-4">研究方向：纳米材料在植物保护中的应用</p>
-                                <div class="flex gap-3">
-                                    <a href="#" class="text-primary hover:text-secondary transition-colors">
-                                        <i class="fa fa-envelope"></i>
-                                    </a>
-                                    <a href="#" class="text-primary hover:text-secondary transition-colors">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                    <a href="#" class="text-primary hover:text-secondary transition-colors">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="student-grid" id="graduate-team-container">
+                        <!-- 研究生卡片将通过JavaScript动态生成 -->
                     </div>
                 </div>
                 
@@ -413,12 +393,123 @@
             });
         });
 
+        // 动态生成研究生卡片
+        function generateGraduateCards() {
+            const container = document.getElementById('graduate-team-container');
+            if (!container || !window.Config) {
+                return;
+            }
+            
+            // 从Config获取研究生数据
+            const graduateData = window.Config.get('students.graduate');
+            if (!graduateData || !Array.isArray(graduateData)) {
+                console.warn('未找到研究生数据');
+                return;
+            }
+            
+            // 清空容器
+            container.innerHTML = '';
+            
+            // 遍历研究生数组生成卡片
+            graduateData.forEach((graduate, index) => {
+                const card = document.createElement('div');
+                card.className = 'student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-6 transition-all duration-300';
+                card.dataset.type = 'graduate';
+                
+                card.innerHTML = `
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                            <img src="${graduate.photo || ''}" alt="${graduate.name || '研究生照片'}" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-bold text-lg text-primary mb-1">${graduate.name || ''}</h4>
+                        <p class="text-gray-600 mb-3">${graduate.info || ''}</p>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-primary hover:text-secondary transition-colors">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-secondary transition-colors">
+                                <i class="fa fa-github"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-secondary transition-colors">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+        
+        // 动态生成本科生卡片
+        function generateUndergraduateCards() {
+            // 找到本科生容器
+            const undergraduateContainer = document.querySelector('#students .grid.student-grid');
+            if (!undergraduateContainer || !window.Config) {
+                return;
+            }
+            
+            // 从Config获取本科生数据
+            const undergraduateData = window.Config.get('students.undergraduates');
+            if (!undergraduateData || !Array.isArray(undergraduateData)) {
+                console.warn('未找到本科生数据');
+                return;
+            }
+            
+            // 清空容器
+            undergraduateContainer.innerHTML = '';
+            
+            // 遍历本科生数组生成卡片
+            undergraduateData.forEach((undergraduate, index) => {
+                const card = document.createElement('div');
+                card.className = 'student-card card-hover bg-neutral rounded-xl overflow-hidden shadow-md p-4 transition-all duration-300';
+                card.dataset.type = 'undergraduate';
+                
+                card.innerHTML = `
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-24 h-24 rounded-full overflow-hidden mb-3">
+                            <img src="${undergraduate.photo || ''}" alt="${undergraduate.name || '本科生照片'}" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-semibold text-primary mb-1">${undergraduate.name || ''}</h4>
+                        <p class="text-gray-600 text-sm">${undergraduate.info || ''}</p>
+                    </div>
+                `;
+                
+                undergraduateContainer.appendChild(card);
+            });
+        }
+
         // 团队成员筛选功能
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.student-filter-btn');
             const studentCards = document.querySelectorAll('.student-card');
-            const graduateSection = document.querySelector('h3:text(研究生)').parentElement;
-            const undergraduateSection = document.querySelector('h3:text(本科生)').parentElement;
+            const h3Elements = document.querySelectorAll('h3');
+            let graduateSection, undergraduateSection;
+            
+            // 查找包含研究生和本科生的标题部分
+            h3Elements.forEach(h3 => {
+                if (h3.textContent.includes('研究生')) {
+                    graduateSection = h3.parentElement;
+                } else if (h3.textContent.includes('本科生')) {
+                    undergraduateSection = h3.parentElement;
+                }
+            });
+
+            // 确保Config数据加载完成后再生成研究生卡片
+            if (window.Config && window.Config.get('students.graduate')) {
+                generateGraduateCards();
+            } else {
+                // 添加一个小延迟，确保Config对象已加载
+                setTimeout(generateGraduateCards, 1000);
+            }
+            
+            // 确保Config数据加载完成后再生成本科生卡片
+            if (window.Config && window.Config.get('students.undergraduates')) {
+                generateUndergraduateCards();
+            } else {
+                // 添加一个小延迟，确保Config对象已加载
+                setTimeout(generateUndergraduateCards, 1000);
+            }
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {

@@ -39,7 +39,7 @@
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2">
                 <img data-image="logo" alt="实验室标志" class="h-10 w-auto">
-                <span data-content="site.name" class="text-xl font-bold text-primary">纳米植物实验室</span>
+                <span data-content="site.name" class="text-xl font-bold text-primary">纳米材料应用和植物基因组学实验室</span>
             </a>
             
             <!-- 桌面导航 -->
@@ -97,26 +97,26 @@
                     实验室环境
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    <!-- 实验室照片 -->
-                    <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <img data-image="about.main" alt="实验室照片1" class="w-full h-64 object-cover">
-                        <div class="p-4 bg-gray-50">
-                            <p data-content="index.labPhotos[0].caption" class="text-gray-700 text-center">实验室全景</p>
-                        </div>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <img data-image="about.equipment" alt="实验室照片2" class="w-full h-64 object-cover">
-                        <div class="p-4 bg-gray-50">
-                            <p data-content="index.labPhotos[1].caption" class="text-gray-700 text-center">实验设备</p>
-                        </div>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <img data-image="research.thumbnails[0]" alt="实验室照片3" class="w-full h-64 object-cover">
-                        <div class="p-4 bg-gray-50">
-                            <p data-content="index.labPhotos[2].caption" class="text-gray-700 text-center">研究环境</p>
-                        </div>
-                    </div>
+            <!-- 实验室照片 -->
+            <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="photos/实验室3.jpg" data-image="index.photos.photos[0].src" alt="实验室照片3" class="w-full h-64 object-cover">
+                <div class="p-4 bg-gray-50">
+                    <p data-content="index.labPhotos[0].caption" class="text-gray-700 text-center">实验室全景</p>
                 </div>
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="photos/实验室2.jpg" data-image="index.photos.photos[1].src" alt="实验室照片2" class="w-full h-64 object-cover">
+                <div class="p-4 bg-gray-50">
+                    <p data-content="index.labPhotos[1].caption" class="text-gray-700 text-center">实验场地</p>
+                </div>
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img src="photos/首页3.jpg" data-image="index.photos.photos[2].src" alt="首页3" class="w-full h-64 object-cover">
+                <div class="p-4 bg-gray-50">
+                    <p data-content="index.labPhotos[2].caption" class="text-gray-700 text-center">研究团队</p>
+                </div>
+            </div>
+        </div>
             </div>
         </section>
         
@@ -145,7 +145,7 @@
     <!-- 简单页脚 -->
     <footer class="bg-primary text-white py-6">
         <div class="container mx-auto px-4 text-center">
-            <p data-content="footer.copyright" class="mb-2">&copy; 2024 纳米材料应用和植物基因组学实验室. 保留所有权利.</p>
+            <p data-content="footer.copyright" class="mb-2">&copy; 2025 纳米材料应用和植物基因组学实验室. 保留所有权利.</p>
         </div>
     </footer>
 
@@ -183,6 +183,11 @@
             });
         }
     </script>
-    <script src="hot-reload.js"></script>
+    <!-- 暂时移除hot-reload.js和check_website.js以解决语法错误问题 -->
+    <!-- <script src="hot-reload.js"></script> -->
+    <!-- <script src="check_website.js"></script> -->
+    
+    <!-- 图片修复脚本 -->
+    <script src="fix_images.js"></script>
 </body>
 </html>

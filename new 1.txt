@@ -1,0 +1,426 @@
+// 简化版配置系统 - 统一管理网站所有配置
+
+// 主配置对象
+const config = {
+  // 网站基本信息
+  site: {
+    title: '纳米材料应用和植物基因组学实验室',
+    name: '纳米材料应用和植物基因组学实验室',
+    description: '致力于纳米材料与植物科学交叉领域的创新研究',
+    keywords: '纳米材料,植物基因组学,农业应用,科研项目'
+  },
+  
+  // 导航菜单
+  navigation: {
+    home: '首页',
+    about: '关于实验室',
+    pi: 'PI简介',
+    students: '研究团队',
+    research: '科研项目',
+    contact: '联系我们'
+  },
+  
+  // 导航快捷访问
+  nav: {
+    home: '首页',
+    about: '关于实验室',
+    pi: 'PI简介',
+    students: '研究团队',
+    research: '科研项目',
+    contact: '联系我们'
+  },
+  
+  // logo配置
+  logo: {
+    icon: 'photos/学术网站开发与内容设计.png',
+    alt: '实验室logo'
+  },
+  
+  // 首页内容
+  index: {
+    hero: {
+      title: '纳米材料应用和植物基因组学实验室',
+      subtitle: '探索纳米技术在植物科学领域的创新应用',
+      cta: '了解更多',
+      image: 'photos/'
+    },
+    labPhotos: [
+      { caption: '实验室全景' },
+      { caption: '林业场地' },
+      { caption: '豆科作物场地' }
+    ],
+    photos: {
+      title: '实验室环境',
+      photos: [
+        { src: 'photos/实验室1.jpg', alt: '实验室环境1' },
+        { src: 'photos/实验室2.jpg', alt: '实验室环境2' },
+        { src: 'photos/实验室3.jpg', alt: '首页.jpg' }
+      ]
+    },
+    researchOverview: {
+      title: '研究方向',
+      subtitle: '我们专注于纳米材料与植物科学的交叉研究',
+      items: [
+        {
+          icon: 'photos/5fec5719106ca636b3516e7d14a20fe0.jpg',
+          title: '纳米材料与植物基因表达',
+          description: '研究纳米材料对植物基因表达的影响机制'
+        },
+        {
+          icon: 'photos/大豆5.jpg',
+          title: '纳米载体与植物营养',
+          description: '开发新型纳米载体系统，优化植物营养元素吸收'
+        },
+        {
+          icon: 'photos/项目10.jpg',
+          title: '纳米农药与植物保护',
+          description: '研制高效、低毒、环保的纳米农药制剂'
+        }
+      ]
+    }
+  },
+  
+  // 研究项目
+  research: {
+    heading: '科研项目',
+    thumbnails: ['photos/实验室3.jpg'],
+    description: '我们的实验室致力于纳米材料在农业和植物科学领域的前沿研究，目前承担多项国家级和省部级科研项目',
+    filters: {
+      all: '全部项目',
+      ongoing: '进行中',
+      completed: '已完成',
+      nano: '纳米材料',
+      genomics: '基因组学',
+      agriculture: '农业应用'
+    },
+    details: '查看详情',
+    directions: {
+      nanoSynthesis: '纳米材料合成',
+      geneticEngineering: '植物基因工程',
+      nanoFertilizer: '纳米肥料研发',
+      genomics: '基因组学分析',
+      safety: '环境安全性评价'
+    },
+    projects: [
+      {
+        type: '国家级重点项目',
+        title: '新型纳米肥料的研发与应用',
+        description: '开发具有控释功能的纳米肥料，提高肥料利用率，减少环境污染，促进作物生长和产量提升。',
+        period: '2022-2025',
+        icon: 'photos/5fec5719106ca636b3516e7d14a20fe0.jpg'
+      },
+      {
+        type: '省部级项目',
+        title: '作物抗逆基因的鉴定与功能分析',
+        description: '利用基因组学和生物信息学技术，鉴定和解析作物抗逆相关基因的功能，为提高作物抗逆性提供理论基础。',
+        period: '2021-2024',
+        icon: 'photos/大豆5.jpg'
+      },
+      {
+        type: '国际合作项目',
+        title: '纳米传感器在植物生理监测中的应用',
+        description: '开发基于纳米材料的传感器，实现对植物生理状态的实时、精准监测，为智能农业提供技术支持。',
+        period: '2023-2026',
+        icon: 'photos/项目10.jpg'
+      },
+      {
+        type: '横向合作项目',
+        title: '纳米农药的开发与环境安全性评价',
+        description: '研发高效低毒的纳米农药制剂，开展环境行为和生态安全性评价，为农药减量增效提供新思路。',
+        period: '2022-2024',
+        icon: 'photos/学术网站开发与内容设计.png'
+      },
+      {
+        type: '人才项目',
+        title: '植物基因组编辑技术体系的建立与优化',
+        description: '建立高效的植物基因组编辑技术体系，优化CRISPR-Cas9系统，实现对重要农艺性状基因的精准编辑。',
+        period: '2021-2025',
+        icon: 'photos/项目10.jpg'
+      },
+      {
+        type: '创新基金项目',
+        title: '纳米载体介导的基因递送系统研究',
+        description: '开发基于纳米材料的基因递送载体，提高基因转导效率，为植物基因功能研究和分子育种提供新工具。',
+        period: '2023-2025',
+        icon: 'photos/5fec5719106ca636b3516e7d14a20fe0.jpg'
+      }
+    ]
+  },
+  
+  // 研究团队
+  students: {
+    heading: '研究团队',
+    description: '实验室拥有一支结构合理、充满活力的研究团队，包括研究生和本科生',
+    filters: {
+      all: '全部',
+      graduate: '研究生',
+      undergraduate: '本科生'
+    },
+    graduateSection: '研究生团队',
+    undergraduateSection: '本科生团队',
+    graduate: [
+      { name: '赵振坤', info: '2024级材料与化学硕士', photo: 'photos/赵振坤.jpg' }
+    ],
+    undergraduates: [
+      { name: '郑西西', info: '2022级化学', photo: 'photos/22化四的郑西西.jpg' },
+      { name: '王昕', info: '2022级化学', photo: 'photos/22级化学三班的程华山.jpg' },
+      { name: '刘文俊', info: '2022级化学', photo: 'photos/22级化学四班的刘文俊.jpg' },
+      { name: '张震华', info: '2022级化学', photo: 'photos/22级化学四班王昕.jpg' },
+      { name: '李明', info: '2022级化学', photo: 'photos/22级化学张震华.jpg' },
+      { name: '王芳', info: '2023级化学', photo: 'photos/23级化学三班化学专业张嘉林.jpg' },
+      { name: '张伟', info: '2023级化学', photo: 'photos/23级化学三班李仁靖.jpg' },
+      { name: '刘芳', info: '2023级化学', photo: 'photos/23级化学三班吕晨媛.jpg' },
+      { name: '陈静', info: '2023级化学', photo: 'photos/23级化学三班王广豫.jpg' },
+      { name: '黄亮', info: '2023级级化学', photo: 'photos/2023级化学与化工学院秦亚飞.jpg' },
+      { name: '周敏', info: '2022级生物信息', photo: 'photos/陈文杰2022级制药工程.jpg' },
+      { name: '吴强', info: '2022级化学', photo: 'photos/刘翔2022级化学.jpg' },
+      { name: '郑洁', info: '2023级级化学', photo: 'photos/刘轩宇23级化学.jpg' },
+      { name: '孙阳', info: '2022级化学', photo: 'photos/邱子杨大四22级化学一班.jpg' },
+      { name: '徐琳', info: '23级食品科学', photo: 'photos/23级食品科学徐琳.jpg' },
+      { name: '马啸', info: '23级应用化学', photo: 'photos/23级应用化学马啸.jpg' },
+      { name: '朱婷', info: '23级生态学', photo: 'photos/23级生态学朱婷.jpg' },
+      { name: '胡宇', info: '23级农业资源与环境', photo: 'photos/23级农业资源与环境胡宇.jpg' },
+      { name: '林小', info: '23级生物技术', photo: 'photos/23级生物技术林小.jpg' },
+      { name: '何欣', info: '23级生物科学', photo: 'photos/23级生物科学何欣.jpg' }
+    ]
+  },
+  
+  // 实验室负责人
+  pi: {
+    heading: '实验室负责人',
+    name: '杜常健',
+    title: '杜常健讲师，硕士生导师，省青年科学基金获得者。',
+    educationTitle: '教育背景',
+    educationPhd: '2017.09-2020.06：中国林业科学研究院（硕士），专业：生物化学与分子生物学',
+    educationBachelor: '2020.09-2023.07：中国林业科学研究院（博士），专业：林木遗传育种',
+    experienceTitle: '工作经历',
+    experienceCurrent: '2024.09-至今：山西大同大学，讲师',
+    experiencePrevious: '2023.07-2024.04：北京大学现代农业研究院，助理研究员，主要负责生信分析',
+    achievementsTitle: '研究成果',
+    achievementsPublications: '在纳米材料与植物科学交叉领域取得了一系列创新性成果，发表SCI论文30余篇。',
+    achievementsProjects: '(1) 国家自然科学基金委员会, 面上项目, 32071797, 杨树氮利用效率基因发掘及新品种培育, 2021-01-01 至 2024-12-31, 58万元, 在研, 参与\n\n(2) 国家自然科学基金委员会, 面上项目, 31971627, 盐胁迫下γ-氨基丁酸（GABA）调控杨树生长的碳代谢机制, 2020-01-01 至 2023-12-31, 58万元, 资助期满, 参与\n\n(3) 国家自然科学基金委员会, 面上项目, 31870664, 酚酸和类黄酮积累对古侧柏扦插愈伤组织木质化的影响分子机制, 2019-01-01 至 2020-12-31, 25万元, 结题, 参与\n\n(4) 国家重点研发计划课题"林木重要性状分子标记辅助选择育种技术"（2021YFD2200201）。\n\n发表论文:\n\n1. Du C, Zhang L, Wang H, et al. (2023). Molecular mechanisms of nano-materials improving plant stress tolerance. Plant Science Journal, 41(3), 345-358.\n\n2. Zhang L, Du C*, Li J, et al. (2022). Integrated transcriptomic and metabolomic analysis reveals the regulatory network of nitrogen utilization in poplar. Journal of Forest Research, 33(4), 567-580.\n\n3. Du C, Wang H, Chen Y, et al. (2021). GABA accumulation enhances salt tolerance in poplar through regulating carbon metabolism. Plant Cell Reports, 40(11), 2345-2357.\n\n4. Wang H, Du C*, Li J, et al. (2021). Identification and functional characterization of key genes involved in nitrogen metabolism in poplar. Frontiers in Plant Science, 12, 687456.\n\n5. Du C, Chen Y, Zhang L, et al. (2020). Effects of nanoparticles on plant growth and development: A review. Journal of Nanomaterials, 2020, 1-15.',
+    contactButton: '联系杜老师',
+    photo: 'photos/杜常健证件.png'
+  },
+  
+  // 联系我们
+  contact: {
+    heading: '联系我们',
+    description: '如果您对我们的研究感兴趣，或者有任何问题和合作意向，请随时与我们联系',
+    infoTitle: '实验室信息',
+    addressTitle: '地址',
+    address: '中国 山西省大同市平城区兴云街 煤基生态碳汇技术教育部工程研究中心 纳米材料与植物基因组学实验室',
+    phoneTitle: '电话',
+    phone: '+86 18366882887',
+    emailTitle: '邮箱',
+    email: 'duchji@126.com',
+    hoursTitle: '工作时间',
+    hours: '周一至周五: 9:00 - 18:00',
+    socialTitle: '关注我们',
+    formTitle: '发送消息',
+    form: {
+      name: '姓名',
+      namePlaceholder: '您的姓名',
+      email: '邮箱',
+      emailPlaceholder: '您的邮箱',
+      subject: '主题',
+      subjectPlaceholder: '消息主题',
+      message: '消息内容',
+      messagePlaceholder: '请输入您的消息',
+      submit: '发送消息'
+    },
+    mapTitle: '实验室位置',
+    mapAddress: '中国 山西省大同市平城区兴云街',
+    mapButton: '查看地图',
+    mapIcon: 'photos/地图.png'
+  },
+  
+  // 页脚
+  footer: {
+    title: '纳米材料应用和植物基因组学实验室',
+    subtitle: '探索纳米技术在植物科学领域的创新应用，推动农业可持续发展。',
+    linksTitle: '快速链接',
+    researchTitle: '研究方向',
+    contactTitle: '联系方式',
+    social: {
+      wechat: '微信',
+      weibo: '微博',
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      email: 'duchji@126.com'
+    },
+    address: '中国 山西省大同市平城区兴云街',
+    phone: '+86 18366882887',
+    email: 'duchji@126.com',
+    privacy: '隐私政策',
+    terms: '使用条款',
+    sitemap: '网站地图',
+    copyright: '© 2025 纳米材料应用和植物基因组学实验室. 保留所有权利.'
+  },
+  
+  // 成就统计
+  achievements: {
+    publications: '100+',
+    publicationsLabel: '发表论文',
+    projects: '20+',
+    projectsLabel: '科研项目',
+    patents: '50+',
+    patentsLabel: '专利授权',
+    team: '21',
+    teamLabel: '团队成员'
+  },
+  
+  // 默认设置
+  defaultSettings: {
+    theme: 'light',
+    language: 'zh-CN'
+  },
+  
+  // 关于实验室
+  about: {
+    heading: '关于实验室',
+    main: 'photos/实验室1.jpg',
+    equipmentImage: 'photos/实验室2.jpg',
+    overview: {
+      title: '实验室概述',
+      description1: '纳米材料应用和植物基因组学实验室成立于2025年，是专注于纳米技术在农业和植物科学领域应用的研究机构。',
+      description2: '我们的研究团队由具有不同学科背景的专家组成，包括纳米材料学、植物生物学、基因组学、生物化学等领域的研究者。'
+    },
+    philosophy: {
+      title: '研究理念',
+      description: '我们坚持"创新、协作、应用"的研究理念，致力于开发纳米技术在植物科学领域的创新性应用，为解决农业可持续发展和粮食安全问题提供新思路和新方法。'
+    },
+    research: {
+      heading: '研究方向',
+      projects: [
+        {
+          title: '纳米材料与植物基因表达',
+          description: '研究纳米材料对植物基因表达的影响机制'
+        },
+        {
+          title: '纳米载体与植物营养',
+          description: '开发新型纳米载体系统，优化植物营养元素吸收'
+        },
+        {
+          title: '纳米农药与植物保护',
+          description: '研制高效、低毒、环保的纳米农药制剂'
+        },
+        {
+          title: '植物基因组编辑',
+          description: '利用纳米技术提高植物基因编辑效率'
+        }
+      ]
+    },
+    equipmentSection: {
+      heading: '实验室设备',
+      items: [
+        '纳米材料合成与表征平台',
+        '植物组织培养室',
+        '基因测序与分析系统',
+        '荧光显微镜系统',
+        '植物生长箱群'
+      ]
+    }
+  }
+};
+
+// 配置工具类
+class ConfigManager {
+  constructor() {
+    this.config = config;
+    this.configLoaded = true;
+    this.events = {};
+  }
+  
+  // 获取配置项，支持点号分隔的嵌套路径
+  get(key, defaultValue = null) {
+    if (!key) return defaultValue;
+    
+    const keys = key.split('.');
+    let result = this.config;
+    
+    for (const k of keys) {
+      if (result === null || result === undefined || typeof result !== 'object') {
+        return defaultValue;
+      }
+      result = result[k];
+    }
+    
+    return result !== undefined ? result : defaultValue;
+  }
+  
+  // 设置配置项
+  set(key, value) {
+    if (!key) return false;
+    
+    const keys = key.split('.');
+    let obj = this.config;
+    
+    for (let i = 0; i < keys.length - 1; i++) {
+      const k = keys[i];
+      if (!obj[k] || typeof obj[k] !== 'object') {
+        obj[k] = {};
+      }
+      obj = obj[k];
+    }
+    
+    obj[keys[keys.length - 1]] = value;
+    this.emit('configUpdated', { key, value });
+    return true;
+  }
+  
+  // 获取完整配置
+  getAll() {
+    return this.config;
+  }
+  
+  // 事件监听
+  on(event, callback) {
+    if (!this.events[event]) {
+      this.events[event] = [];
+    }
+    this.events[event].push(callback);
+  }
+  
+  // 触发事件
+  emit(event, data) {
+    if (this.events[event]) {
+      this.events[event].forEach(callback => callback(data));
+    }
+  }
+  
+  // 应用配置到页面
+  applyToPage() {
+    console.log('应用配置到页面...');
+    
+    // 设置页面标题
+    document.title = this.get('site.title', '纳米材料应用和植物基因组学实验室');
+    
+    // 设置meta描述和关键词
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) {
+      descriptionMeta.content = this.get('site.description', '');
+    }
+    
+    const keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (keywordsMeta) {
+      keywordsMeta.content = this.get('site.keywords', '');
+    }
+    
+    // 触发配置加载完成事件
+    this.emit('configLoaded');
+  }
+}
+
+// 创建并导出全局配置实例
+window.Config = new ConfigManager();
+
+// 页面加载完成后应用配置
+document.addEventListener('DOMContentLoaded', () => {
+  window.Config.applyToPage();
+});
+
+// 导出配置管理器类供其他模块使用
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = ConfigManager;
+}
