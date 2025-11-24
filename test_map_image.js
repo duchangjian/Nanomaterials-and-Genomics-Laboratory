@@ -145,61 +145,111 @@ document.addEventListener('DOMContentLoaded', () => {
         testImage.src = url;
     });
     
-    // 添加全局图片路径规范化拦截器 - 确保所有图片加载都使用正确的路径
-  console.log('\n==== 全局图片路径拦截器 ====');
-  
-  // 拦截Image构造函数
-  const originalImageSrc = Object.getOwnPropertyDescriptor(Image.prototype, 'src');
-  Object.defineProperty(Image.prototype, 'src', {
-    set: function(value) {
-      // 规范化图片路径
-      let normalizedValue = value;
-      if (typeof value === 'string' && 
-          !value.startsWith('http://') && 
-          !value.startsWith('https://') && 
-          !value.startsWith('/photos/') && 
-          !value.startsWith('photos/') && 
-          !value.startsWith('/')) {
-        // 强制添加photos/前缀
-        normalizedValue = 'photos/' + value;
-        console.log(`拦截并重定向图片请求: ${value} -> ${normalizedValue}`);
+    // ==== 全局图片路径规范化拦截器 ====\n  (function() {
+    console.log('全局图片路径拦截器初始化...');
+    
+    // 规范化图片路径的核心函数
+    function normalizeImagePath(path) {
+      if (typeof path !== 'string') return path;
+      
+      // 已规范化的路径直接返回
+      if (path.startsWith('http://') || 
+          path.startsWith('https://') || 
+          path.startsWith('/photos/') || 
+          path.startsWith('photos/')) {
+        return path;
       }
-      // 使用原始setter
-      if (originalImageSrc && originalImageSrc.set) {
-        originalImageSrc.set.call(this, normalizedValue);
-      } else {
-        // 备用方案
-        this.setAttribute('src', normalizedValue);
+      
+      // 处理根目录路径 - 直接修改为photos/开头
+      if (path.startsWith('/')) {
+        // 移除前导斜杠并添加photos/
+        return 'photos/' + path.substring(1);
       }
-    },
-    get: function() {
-      if (originalImageSrc && originalImageSrc.get) {
-        return originalImageSrc.get.call(this);
-      }
-      return this.getAttribute('src');
-    },
-    configurable: true
-  });
-  
-  // 拦截元素的src属性设置
-  const originalSetAttribute = Element.prototype.setAttribute;
-  Element.prototype.setAttribute = function(name, value) {
-    if (name === 'src' && typeof value === 'string') {
-      // 规范化图片路径
-      let normalizedValue = value;
-      if (!value.startsWith('http://') && 
-          !value.startsWith('https://') && 
-          !value.startsWith('/photos/') && 
-          !value.startsWith('photos/') && 
-          !value.startsWith('/')) {
-        // 强制添加photos/前缀
-        normalizedValue = 'photos/' + value;
-        console.log(`拦截元素src属性设置: ${value} -> ${normalizedValue}`);
-      }
-      return originalSetAttribute.call(this, name, normalizedValue);
+      
+      // 处理相对路径 - 添加photos/前缀
+      return 'photos/' + path;
     }
-    return originalSetAttribute.call(this, name, value);
-  };
+    
+    // 从backgroundImage字符串中提取并规范化所有图片URL
+    function normalizeBackgroundImage(bgImage) {
+      if (typeof bgImage !== 'string') return bgImage;
+      
+      // 正则匹配所有url()中的路径
+      return bgImage.replace(/url\((['"]?)([^'"]+)(['"]?)\)/g, (match, quote1, path, quote2) => {
+        if (!path || path.startsWith('http://') || path.startsWith('https://')) {
+          return match;
+        }
+        
+        const normalizedPath = normalizeImagePath(path);
+        console.log(`拦截并重定向背景图片: ${path} -> ${normalizedPath}`);
+        return `url(${quote1}${normalizedPath}${quote2})`;
+      });
+    }
+    
+    // 1. 拦截Image构造函数的src属性
+    const originalImageSrc = Object.getOwnPropertyDescriptor(Image.prototype, 'src');
+    Object.defineProperty(Image.prototype, 'src', {
+      set: function(value) {
+        const normalizedValue = normalizeImagePath(value);
+        if (normalizedValue !== value) {
+          console.log(`拦截图片src: ${value} -> ${normalizedValue}`);
+        }
+        
+        if (originalImageSrc && originalImageSrc.set) {
+          originalImageSrc.set.call(this, normalizedValue);
+        } else {
+          this.setAttribute('src', normalizedValue);
+        }
+      },
+      get: function() {
+        if (originalImageSrc && originalImageSrc.get) {
+          return originalImageSrc.get.call(this);
+        }
+        return this.getAttribute('src');
+      },
+      configurable: true
+    });
+    
+    // 2. 拦截所有元素的setAttribute方法
+    const originalSetAttribute = Element.prototype.setAttribute;
+    Element.prototype.setAttribute = function(name, value) {
+      if (name === 'src') {
+        const normalizedValue = normalizeImagePath(value);
+        if (normalizedValue !== value) {
+          console.log(`拦截元素src属性: ${value} -> ${normalizedValue}`);
+        }
+        return originalSetAttribute.call(this, name, normalizedValue);
+      }
+      
+      // 拦截style属性设置，特别处理background-image
+      if (name === 'style' && typeof value === 'string' && value.includes('background-image')) {
+        const normalizedValue = normalizeBackgroundImage(value);
+        return originalSetAttribute.call(this, name, normalizedValue);
+      }
+      
+      return originalSetAttribute.call(this, name, value);
+    };
+    
+    // 3. 拦截元素的style.backgroundImage属性
+    const originalStylePrototype = Object.getPrototypeOf(HTMLElement.prototype.style);
+    Object.defineProperty(originalStylePrototype, 'backgroundImage', {
+      set: function(value) {
+        const normalizedValue = normalizeBackgroundImage(value);
+        if (normalizedValue !== value) {
+          console.log(`拦截backgroundImage: ${value} -> ${normalizedValue}`);
+        }
+        
+        // 使用setProperty来确保兼容性
+        this.setProperty('background-image', normalizedValue);
+      },
+      get: function() {
+        return this.getPropertyValue('background-image');
+      },
+      configurable: true
+    });
+    
+    console.log('全局图片路径拦截器初始化完成');
+  })();
   
   // 提供手动设置地图图片的方法供调试
   console.log('\n==== 调试辅助功能 ====');

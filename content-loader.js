@@ -329,8 +329,31 @@ class ContentLoader {
               if (window.Config) {
                 console.log('Config对象存在:', Object.keys(window.Config).join(', '));
                 
+                // 处理research项目图片 - 新增专门的研究项目图片处理逻辑
+                if (key.includes('research.projects')) {
+                  console.log('处理研究项目图片配置路径:', key);
+                  const configData = window.Config.config || window.Config;
+                  
+                  if (configData && configData.research && configData.research.projects) {
+                    console.log('找到research.projects数组:', configData.research.projects.length, '个项目');
+                    
+                    // 提取数组索引
+                    const indexMatch = key.match(/research\.projects\[(\d+)\]\.icon/);
+                    if (indexMatch) {
+                      const index = parseInt(indexMatch[1]);
+                      if (configData.research.projects[index] && configData.research.projects[index].icon) {
+                        // 获取原始路径并规范化
+                        let rawPath = configData.research.projects[index].icon;
+                        imagePath = this.normalizeImagePath(rawPath);
+                        console.log(`研究项目图片路径: ${rawPath} -> ${imagePath}`);
+                      } else {
+                        console.warn(`研究项目索引${index}不存在或icon为空`);
+                      }
+                    }
+                  }
+                }
                 // 直接获取实验室照片路径 - 增强的路径处理
-                if (key.includes('index.photos.photos')) {
+                else if (key.includes('index.photos.photos')) {
                   console.log('处理实验室照片配置路径:', key);
                   const configData = window.Config.config || window.Config;
                   
