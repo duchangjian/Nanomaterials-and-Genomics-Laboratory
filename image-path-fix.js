@@ -1,14 +1,10 @@
 // image-path-fix.js - 图片路径规范化解决方案
-// 此文件提供完整的图片路径规范化功能，确保所有图片正确从photos目录加载
+// 图片路径修复 - 全局解决方案
+// 用于规范化和修复网站中所有图片路径的问题
 
-/**
- * 图片路径规范化解决方案
- * 解决问题：网站中图片路径不正确导致的404错误
- * 特别是contact页面中的地图图片加载失败问题
- */
-
+// 立即执行函数，确保在DOM加载前初始化拦截器
 (function() {
-  console.log('图片路径规范化解决方案初始化...');
+  console.log('图片路径修复模块初始化...');
   
   /**
    * 规范化图片路径的核心函数
@@ -76,7 +72,7 @@
     configurable: true
   });
   
-  // 2. 拦截所有元素的setAttribute方法
+  // 拦截所有元素的setAttribute方法
   const originalSetAttribute = Element.prototype.setAttribute;
   Element.prototype.setAttribute = function(name, value) {
     if (name === 'src') {
@@ -88,6 +84,16 @@
     if (name === 'style' && typeof value === 'string' && value.includes('background-image')) {
       const normalizedValue = normalizeBackgroundImage(value);
       return originalSetAttribute.call(this, name, normalizedValue);
+    }
+    
+    // 处理data-image属性 - 针对research页面的特殊处理
+    if (name.toLowerCase() === 'data-image') {
+      console.log('检测到data-image属性:', value);
+      // 研究项目图片的特殊处理
+      if (value.startsWith('research.projects')) {
+        console.log('特殊处理研究项目图片data-image属性');
+        // 这里我们只记录，实际的路径规范化在fixAllImages中处理
+      }
     }
     
     return originalSetAttribute.call(this, name, value);
@@ -129,21 +135,68 @@
       }
     });
     
-    // 特别处理地图图片 - 确保contact.mapIcon正确加载
-    const mapElements = document.querySelectorAll('[data-image="contact.mapIcon"]');
-    mapElements.forEach(element => {
-      const mapPath = 'photos/地图.png';
-      if (element.tagName === 'IMG') {
-        element.src = mapPath;
-      } else {
-        element.style.backgroundImage = `url("${mapPath}")`;
+    // 特别处理研究项目图片 - 增强research页面的图片处理
+    const researchProjectIcons = document.querySelectorAll('[data-image^="research.projects"]');
+    console.log(`找到${researchProjectIcons.length}个研究项目图标`);
+    
+    researchProjectIcons.forEach(element => {
+      const dataImage = element.getAttribute('data-image');
+      console.log('处理研究项目图标:', dataImage);
+      
+      // 如果是i标签，确保背景图片正确设置
+      if (element.tagName === 'I') {
+        // 尝试从配置中获取正确的路径
+        if (window.Config && window.Config.config && window.Config.config.research && window.Config.config.research.projects) {
+          const match = dataImage.match(/research\.projects\[(\d+)\]\.icon/);
+          if (match && match[1]) {
+            const index = parseInt(match[1]);
+            if (window.Config.config.research.projects[index] && window.Config.config.research.projects[index].icon) {
+              const iconPath = normalizeImagePath(window.Config.config.research.projects[index].icon);
+              console.log(`设置研究项目${index}图标:`, iconPath);
+              element.style.backgroundImage = `url("${iconPath}")`;
+              element.style.backgroundSize = 'cover';
+              element.style.backgroundPosition = 'center';
+              element.style.display = 'inline-block';
+              element.style.width = '100px';
+              element.style.height = '100px';
+              element.style.borderRadius = '8px';
+              element.style.margin = '10px';
+              // 清除Font Awesome图标，避免冲突
+              element.className = element.className.replace(/fa-\w+/g, '').replace(/fa\s+/g, '').trim();
+            }
+          }
+        }
       }
-      // 确保元素可见
-      element.style.display = 'block';
-      element.style.visibility = 'visible';
     });
     
-    console.log(`图片路径修复完成，处理了 ${allImages.length} 个图片元素和 ${mapElements.length} 个地图元素`);
+    // 为地图图片提供专用修复逻辑
+    const mapElements = document.querySelectorAll('[data-image="contact.mapIcon"],.map-image,[id*="map"],[class*="map"]');
+    console.log(`找到${mapElements.length}个可能的地图元素`);
+    
+    mapElements.forEach(element => {
+      try {
+        // 设置默认地图图片路径
+        const mapPath = normalizeImagePath('地图.png');
+        console.log(`设置地图图片路径:`, mapPath);
+        
+        if (element.tagName === 'IMG') {
+          element.src = mapPath;
+          element.alt = element.alt || '实验室地图';
+        } else {
+          element.style.backgroundImage = `url("${mapPath}")`;
+          element.style.backgroundSize = 'contain';
+          element.style.backgroundRepeat = 'no-repeat';
+          element.style.backgroundPosition = 'center';
+        }
+        // 确保元素可见
+        element.style.display = 'block';
+        element.style.visibility = 'visible';
+      } catch (e) {
+        console.error('修复地图图片时出错:', e);
+      }
+    });
+    
+    console.log(`图片路径修复完成，处理了 ${allImages.length} 个图片元素、${researchProjectIcons.length} 个研究项目图标和 ${mapElements.length} 个地图元素`);
   }
   
   // 当文档加载完成后执行修复
@@ -154,7 +207,7 @@
     setTimeout(fixAllImages, 100);
   }
   
-  console.log('图片路径规范化解决方案初始化完成');
+  console.log('图片路径修复模块初始化完成，公开API已注册');
   
   // 导出公共API供外部调用
   window.ImagePathFix = {
@@ -173,8 +226,38 @@
         element.style.visibility = 'visible';
       });
       return mapElements.length;
+    },
+    version: '1.1.0',
+    // 添加研究项目图片专用修复方法
+    fixResearchProjectImages: function() {
+      console.log('执行研究项目图片专用修复...');
+      const researchProjectIcons = document.querySelectorAll('[data-image^="research.projects"]');
+      researchProjectIcons.forEach(element => {
+        // 专用修复逻辑
+        if (window.Config && window.Config.config && window.Config.config.research && window.Config.config.research.projects) {
+          const dataImage = element.getAttribute('data-image');
+          const match = dataImage.match(/research\.projects\[(\d+)\]\.icon/);
+          if (match && match[1]) {
+            const index = parseInt(match[1]);
+            if (window.Config.config.research.projects[index] && window.Config.config.research.projects[index].icon) {
+              const iconPath = normalizeImagePath(window.Config.config.research.projects[index].icon);
+              if (element.tagName === 'I') {
+                element.style.backgroundImage = `url("${iconPath}")`;
+                element.style.backgroundSize = 'cover';
+                element.style.backgroundPosition = 'center';
+              }
+            }
+          }
+        }
+      });
     }
   };
+  
+  // 监听contentLoader.ready事件（如果内容加载器有此事件）
+  window.addEventListener('contentLoader.ready', function() {
+    console.log('内容加载器已就绪，开始修复图片路径...');
+    fixAllImages();
+  });
 })();
 
 /**
